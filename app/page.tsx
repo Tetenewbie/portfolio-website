@@ -1,68 +1,116 @@
 import Image from "next/image";
 
+const EMAIL = "youremail@example.com"; // <-- replace with your email
+const LINKEDIN = "https://www.linkedin.com/in/your-profile"; // <-- replace
+const INSTAGRAM = "https://www.instagram.com/your-profile"; // <-- replace
+const GITHUB = "https://github.com/Tetenewbie";
+const CV_LINK = "/cv.pdf"; // put your CV PDF in the public/ folder as cv.pdf
+
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <div className="min-h-screen bg-zinc-50 dark:bg-black font-sans text-zinc-900 dark:text-zinc-50">
+      <header className="flex flex-col items-center pt-20 pb-8">
+        <p className="text-sm uppercase tracking-widest text-zinc-600 dark:text-zinc-400">
+          developer / learner
+        </p>
+        <h1 className="mt-2 text-center text-4xl sm:text-5xl font-semibold">
+          Tete Artur Sanamyan
+        </h1>
+        <nav className="mt-6">
+          <ul className="flex gap-3 rounded-full bg-white/60 dark:bg-black/60 p-1 shadow-sm">
+            <li>
+              <a
+                href="#learning"
+                className="block px-5 py-2 rounded-full text-sm font-medium hover:bg-zinc-100 dark:hover:bg-zinc-800"
+              >
+                Learning
+              </a>
+            </li>
+            <li>
+              <a
+                href="#projects"
+                className="block px-5 py-2 rounded-full text-sm font-medium hover:bg-zinc-100 dark:hover:bg-zinc-800"
+              >
+                Projects
+              </a>
+            </li>
+            <li>
+              <a
+                href={CV_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block px-5 py-2 rounded-full text-sm font-medium hover:bg-zinc-100 dark:hover:bg-zinc-800"
+              >
+                CV
+              </a>
+            </li>
+            <li>
+              <a
+                href="#contact"
+                className="block px-5 py-2 rounded-full text-sm font-medium hover:bg-zinc-100 dark:hover:bg-zinc-800"
+              >
+                Contact
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+
+      <main className="max-w-3xl mx-auto px-6 pb-24">
+        <section id="learning" className="mt-12">
+          <h2 className="text-2xl font-semibold">Learning & Technologies</h2>
+          <p className="mt-3 text-zinc-600 dark:text-zinc-400">
+            Technologies I use / am learning — a short list based on this project.
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
+          <ul className="mt-4 flex flex-wrap gap-3">
+            <li className="px-3 py-1 rounded-full bg-indigo-50 text-indigo-700 text-sm">TypeScript</li>
+            <li className="px-3 py-1 rounded-full bg-amber-50 text-amber-700 text-sm">JavaScript</li>
+            <li className="px-3 py-1 rounded-full bg-cyan-50 text-cyan-700 text-sm">CSS / Tailwind</li>
+            <li className="px-3 py-1 rounded-full bg-sky-50 text-sky-700 text-sm">React</li>
+            <li className="px-3 py-1 rounded-full bg-rose-50 text-rose-700 text-sm">Next.js</li>
+            <li className="px-3 py-1 rounded-full bg-zinc-50 text-zinc-700 text-sm">Vercel</li>
+          </ul>
+        </section>
+
+        <section id="projects" className="mt-12">
+          <h2 className="text-2xl font-semibold">Projects</h2>
+          <p className="mt-3 text-zinc-600 dark:text-zinc-400">
+            See my projects and repositories on GitHub.
+          </p>
           <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+            href={GITHUB}
             target="_blank"
             rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 mt-4 rounded-md bg-foreground/90 text-background px-4 py-2 text-sm font-medium hover:opacity-95"
           >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
+            View my GitHub
           </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+        </section>
+
+        <section id="contact" className="mt-12">
+          <h2 className="text-2xl font-semibold">Contact</h2>
+          <p className="mt-3 text-zinc-600 dark:text-zinc-400">You can reach me by email or via social media:</p>
+
+          <div className="mt-4 space-y-2">
+            <a href={`mailto:${EMAIL}`} className="text-sm text-indigo-700 underline">
+              {EMAIL}
+            </a>
+
+            <div className="flex gap-4 mt-2">
+              <a href={LINKEDIN} target="_blank" rel="noopener noreferrer" className="text-sm text-zinc-700 hover:underline">
+                LinkedIn
+              </a>
+              <a href={INSTAGRAM} target="_blank" rel="noopener noreferrer" className="text-sm text-zinc-700 hover:underline">
+                Instagram
+              </a>
+              <a href={GITHUB} target="_blank" rel="noopener noreferrer" className="text-sm text-zinc-700 hover:underline">
+                GitHub
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <footer className="mt-20 border-t pt-6 text-center text-sm text-zinc-500">© {new Date().getFullYear()} Tete Artur Sanamyan</footer>
       </main>
     </div>
   );
