@@ -1,16 +1,15 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 
-const EMAIL = "youremail@example.com"; 
-const LINKEDIN = "https://www.linkedin.com/in/your-profile"; 
-const INSTAGRAM = "https://www.instagram.com/your-profile"; 
+const EMAIL = "artursanamyan93@gmail.com"; 
+const LINKEDIN = "https://www.linkedin.com/in/artur-sanamyan-295850303/"
+const INSTAGRAM = "https://www.instagram.com/tt_67_76?igsi=ZWZhY2lpYzRnOHlu&utm_source=qr"; 
 const GITHUB = "https://github.com/Tetenewbie";
-const CV_LINK = "/cv.pdf"; 
+const CV_ENGLISH = "/cv_english.pdf"; 
+const CV_GERMAN = "/cv.pdf"; 
 
 export default function Home() {
-  // This state remembers which tab is clicked. We set "learning" as the default so it's not empty when they load the page!
   const [activeTab, setActiveTab] = useState<string | null>("learning");
 
   return (
@@ -22,7 +21,7 @@ export default function Home() {
             developer / learner
           </p>
           <h1 className="mt-2 text-center text-4xl sm:text-5xl font-semibold">
-            Tete Artur Sanamyan
+             Artur Tete Sanamyan
           </h1>
           
           {/* --- TAB NAVIGATION --- */}
@@ -49,15 +48,14 @@ export default function Home() {
                 </button>
               </li>
               <li>
-                {/* CV stays as a direct download link so it opens immediately */}
-                <a
-                  href={CV_LINK}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block px-5 py-2 rounded-full text-sm font-medium hover:bg-zinc-100 dark:hover:bg-zinc-800/50 transition-colors"
+                <button
+                  onClick={() => setActiveTab("cv")}
+                  className={`block px-5 py-2 rounded-full text-sm font-medium transition-colors ${
+                    activeTab === "cv" ? "bg-zinc-200 dark:bg-zinc-800" : "hover:bg-zinc-100 dark:hover:bg-zinc-800/50"
+                  }`}
                 >
                   CV
-                </a>
+                </button>
               </li>
               <li>
                 <button
@@ -81,15 +79,15 @@ export default function Home() {
             <section className="animate-fade-in">
               <h2 className="text-2xl font-semibold">Learning & Technologies</h2>
               <p className="mt-3 text-zinc-600 dark:text-zinc-400">
-                Technologies I use / am learning — a short list based on this project.
+                Technologies I use / am learning — a short list based on my focus.
               </p>
               <ul className="mt-6 flex flex-wrap gap-3">
-                <li className="px-4 py-2 rounded-full bg-indigo-50 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 text-sm font-medium border border-indigo-100 dark:border-indigo-800">TypeScript</li>
-                <li className="px-4 py-2 rounded-full bg-amber-50 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 text-sm font-medium border border-amber-100 dark:border-amber-800">JavaScript</li>
-                <li className="px-4 py-2 rounded-full bg-cyan-50 dark:bg-cyan-900/30 text-cyan-700 dark:text-cyan-300 text-sm font-medium border border-cyan-100 dark:border-cyan-800">CSS / Tailwind</li>
-                <li className="px-4 py-2 rounded-full bg-sky-50 dark:bg-sky-900/30 text-sky-700 dark:text-sky-300 text-sm font-medium border border-sky-100 dark:border-sky-800">React</li>
-                <li className="px-4 py-2 rounded-full bg-rose-50 dark:bg-rose-900/30 text-rose-700 dark:text-rose-300 text-sm font-medium border border-rose-100 dark:border-rose-800">Next.js</li>
-                <li className="px-4 py-2 rounded-full bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 text-sm font-medium border border-zinc-200 dark:border-zinc-700">Vercel</li>
+                <li className="px-4 py-2 rounded-full bg-sky-50 dark:bg-sky-900/30 text-sky-700 dark:text-sky-300 text-sm font-medium border border-sky-100 dark:border-sky-800">Python</li>
+                <li className="px-4 py-2 rounded-full bg-indigo-50 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 text-sm font-medium border border-indigo-100 dark:border-indigo-800">Pandas</li>
+                <li className="px-4 py-2 rounded-full bg-amber-50 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 text-sm font-medium border border-amber-100 dark:border-amber-800">PowerBI</li>
+                <li className="px-4 py-2 rounded-full bg-rose-50 dark:bg-rose-900/30 text-rose-700 dark:text-rose-300 text-sm font-medium border border-rose-100 dark:border-rose-800">Java</li>
+                <li className="px-4 py-2 rounded-full bg-cyan-50 dark:bg-cyan-900/30 text-cyan-700 dark:text-cyan-300 text-sm font-medium border border-cyan-100 dark:border-cyan-800">SQL</li>
+                <li className="px-4 py-2 rounded-full bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 text-sm font-medium border border-zinc-200 dark:border-zinc-700">C / C++</li>
               </ul>
             </section>
           )}
@@ -99,20 +97,118 @@ export default function Home() {
             <section className="animate-fade-in">
               <h2 className="text-2xl font-semibold">Projects</h2>
               <p className="mt-3 text-zinc-600 dark:text-zinc-400">
-                See my projects and repositories on GitHub.
+                Here are my latest projects. You can view the source code and details on GitHub.
               </p>
-              <a
-                href={GITHUB}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 mt-6 rounded-md bg-zinc-900 dark:bg-white text-white dark:text-black px-6 py-3 text-sm font-medium hover:opacity-90 transition-opacity"
-              >
-                View my GitHub →
-              </a>
+              
+              <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                
+                {/* Project 1 */}
+                <div className="flex flex-col justify-between p-5 border border-zinc-200 dark:border-zinc-800 rounded-lg bg-white dark:bg-zinc-900/50 hover:border-zinc-300 dark:hover:border-zinc-700 transition-colors">
+                  <h3 className="text-lg font-medium text-zinc-900 dark:text-zinc-100">3D scene for Computer Graphics</h3>
+                  <a
+                    href="https://github.com/Tetenewbie/Computer-Graphics1_Project"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 mt-4 text-sm font-medium text-indigo-600 dark:text-indigo-400 hover:underline"
+                  >
+                    View on GitHub →
+                  </a>
+                </div>
+
+                {/* Project 2 */}
+                <div className="flex flex-col justify-between p-5 border border-zinc-200 dark:border-zinc-800 rounded-lg bg-white dark:bg-zinc-900/50 hover:border-zinc-300 dark:hover:border-zinc-700 transition-colors">
+                  <h3 className="text-lg font-medium text-zinc-900 dark:text-zinc-100">A beginner ML project</h3>
+                  <a
+                    href="https://github.com/Tetenewbie/house_price_predictor"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 mt-4 text-sm font-medium text-indigo-600 dark:text-indigo-400 hover:underline"
+                  >
+                    View on GitHub →
+                  </a>
+                </div>
+
+                {/* Project 3 */}
+                <div className="flex flex-col justify-between p-5 border border-zinc-200 dark:border-zinc-800 rounded-lg bg-white dark:bg-zinc-900/50 hover:border-zinc-300 dark:hover:border-zinc-700 transition-colors">
+                  <h3 className="text-lg font-medium text-zinc-900 dark:text-zinc-100">Maze Game in Java</h3>
+                  <a
+                    href="https://github.com/Tetenewbie/Maze_Game"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 mt-4 text-sm font-medium text-indigo-600 dark:text-indigo-400 hover:underline"
+                  >
+                    View on GitHub →
+                  </a>
+                </div>
+
+                {/* Project 4 */}
+                <div className="flex flex-col justify-between p-5 border border-zinc-200 dark:border-zinc-800 rounded-lg bg-white dark:bg-zinc-900/50 hover:border-zinc-300 dark:hover:border-zinc-700 transition-colors">
+                  <h3 className="text-lg font-medium text-zinc-900 dark:text-zinc-100">Personal Portfolio Website</h3>
+                  <a
+                    href="https://github.com/Tetenewbie/portfolio-website"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 mt-4 text-sm font-medium text-indigo-600 dark:text-indigo-400 hover:underline"
+                  >
+                    View on GitHub →
+                  </a>
+                </div>
+
+              </div>
             </section>
           )}
 
-          {/* 3. CONTACT TAB */}
+          {/* 3. CV TAB - WITH LANGUAGE SELECTION */}
+          {activeTab === "cv" && (
+            <section className="animate-fade-in">
+              <h2 className="text-2xl font-semibold">Curriculum Vitae</h2>
+              <p className="mt-3 text-zinc-600 dark:text-zinc-400">
+                Choose your preferred language to view or download my CV.
+              </p>
+              
+              <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                
+                {/* English CV */}
+                <div className="flex flex-col justify-between p-6 border-2 border-indigo-200 dark:border-indigo-800 rounded-lg bg-indigo-50 dark:bg-indigo-900/20 hover:border-indigo-400 dark:hover:border-indigo-600 transition-colors">
+                  <div>
+                    <h3 className="text-lg font-semibold text-indigo-900 dark:text-indigo-100">📄 English CV</h3>
+                    <p className="text-sm text-indigo-700 dark:text-indigo-300 mt-2">
+                      
+                    </p>
+                  </div>
+                  <a
+                    href={CV_ENGLISH}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 mt-4 px-4 py-2 rounded-full bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-medium transition-colors w-fit"
+                  >
+                    Open PDF →
+                  </a>
+                </div>
+
+                {/* German CV */}
+                <div className="flex flex-col justify-between p-6 border-2 border-amber-200 dark:border-amber-800 rounded-lg bg-amber-50 dark:bg-amber-900/20 hover:border-amber-400 dark:hover:border-amber-600 transition-colors">
+                  <div>
+                    <h3 className="text-lg font-semibold text-amber-900 dark:text-amber-100">📄 Deutscher Lebenslauf</h3>
+                    <p className="text-sm text-amber-700 dark:text-amber-300 mt-2">
+                    
+                    </p>
+                  </div>
+                  <a
+                    href={CV_GERMAN}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 mt-4 px-4 py-2 rounded-full bg-amber-600 hover:bg-amber-700 text-white text-sm font-medium transition-colors w-fit"
+                  >
+                    PDF öffnen →
+                  </a>
+                </div>
+
+              </div>
+            </section>
+          )}
+
+          {/* 4. CONTACT TAB */}
           {activeTab === "contact" && (
             <section className="animate-fade-in">
               <h2 className="text-2xl font-semibold">Contact</h2>
